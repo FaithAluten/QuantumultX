@@ -1,2 +1,2 @@
-# qx
-自用qx配置
+# QuantumultX
+自用 QuantumultX 配置
