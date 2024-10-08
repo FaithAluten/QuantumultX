@@ -1,3 +1,8 @@
+host, ad.12306.cn, Direct
+host, gg.caixin.com, Direct
+host, sdkapp.uve.weibo.com, Direct
+host-suffix, ucweb.com, Direct
+host-suffix, kuwo.cn, Direct
 host-suffix, lanzou.com, Direct
 host-suffix, macapp.org.cn, Direct
 host-suffix, hassbian.com, Direct
