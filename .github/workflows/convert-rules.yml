@@ -1,4 +1,4 @@
-name: Convert qx Rules to clash
+name: Convert QX Rules to Clash
 
 on:
   push:
