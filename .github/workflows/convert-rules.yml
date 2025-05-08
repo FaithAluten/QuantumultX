@@ -7,6 +7,10 @@ on:
       - 'rule/**.list'
   workflow_dispatch:  # 允许手动触发
 
+# 为工作流添加写入权限
+permissions:
+  contents: write
+
 jobs:
   convert:
     runs-on: ubuntu-latest
