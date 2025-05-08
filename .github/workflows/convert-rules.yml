@@ -21,7 +21,7 @@ jobs:
         python-version: '3.10'
         
     - name: Run conversion script
-      run: python rule/convert_surge_to_clash.py
+      run: python rule/convert_qx_to_clash.py
       
     - name: Commit changes
       run: |
