@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# convert_surge_to_clash.py
-# 将 Surge 规则集转换为 Clash 格式
+# convert_qx_to_clash.py
+# 将 qx 规则集转换为 clash 格式
 
 import os
 import re
@@ -8,7 +8,7 @@ import sys
 
 
 def convert_line(line):
-    """将单行 Surge 规则转换为 Clash 格式"""
+    """将单行 qx 规则转换为 clash 格式"""
     # 忽略注释和空行
     if line.startswith('#') or not line.strip():
         return None
@@ -20,7 +20,7 @@ def convert_line(line):
     if not line:
         return None
     
-    # 解析 Surge 规则
+    # 解析 qx 规则
     parts = line.split(',', 2)
     if len(parts) < 2:
         return None
@@ -47,7 +47,7 @@ def convert_line(line):
 
 
 def convert_file(input_file, output_file):
-    """将整个 Surge 规则文件转换为 Clash 格式"""
+    """将整个 qx 规则文件转换为 clash 格式"""
     with open(input_file, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     
@@ -61,14 +61,22 @@ def convert_file(input_file, output_file):
 
 
 def main():
-    # 获取仓库根目录中的所有 .list 文件
+    # 获取仓库根目录
     repo_root = os.environ.get('GITHUB_WORKSPACE', '.')
+    # 规则文件所在目录
+    rules_dir = os.path.join(repo_root, 'rule')
+    # 输出目录
+    clash_dir = os.path.join(rules_dir, 'clash')
     
-    for filename in os.listdir(repo_root):
+    # 确保输出目录存在
+    os.makedirs(clash_dir, exist_ok=True)
+    
+    # 遍历 rule 目录中的所有 .list 文件
+    for filename in os.listdir(rules_dir):
         if filename.endswith('.list'):
-            input_path = os.path.join(repo_root, filename)
-            # 创建同名的 .yaml 文件
-            output_path = os.path.join(repo_root, f"{os.path.splitext(filename)[0]}.yaml")
+            input_path = os.path.join(rules_dir, filename)
+            # 创建同名的 .yaml 文件在 clash 子目录中
+            output_path = os.path.join(clash_dir, f"{os.path.splitext(filename)[0]}.yaml")
             
             print(f"Converting {input_path} to {output_path}")
             convert_file(input_path, output_path)
