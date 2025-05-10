@@ -10,3 +10,4 @@ payload:
   - DOMAIN-SUFFIX,ldstatic.com
   - DOMAIN-SUFFIX,steampowered.com
   - DOMAIN-SUFFIX,steamcommunity.com
+  - DOMAIN-SUFFIX,greasyfork.org
